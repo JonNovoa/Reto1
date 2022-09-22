@@ -5,17 +5,35 @@
  */
 package Application;
 
+import Controller.Controller;
+import Model.ModelFactory;
+import View.ViewFactory;
+import java.io.File;
+
+
+
 /**
  *
  * @author somor
  */
 public class Main {
+    
+   
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        ViewFactory view = new ViewFactory();
+        ModelFactory model = new ModelFactory();
+        Controller controller = new Controller();
+        
+       // model.run(getView,getModel);
+        
+       
     }
     
 }
+

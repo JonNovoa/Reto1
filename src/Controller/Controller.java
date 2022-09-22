@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package Controller;
 
 /**
  *
  * @author somor
  */
-public class ModelImplementation {
+public class Controller {
+    
+   // public void run ()
     
 }

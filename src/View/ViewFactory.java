@@ -5,10 +5,31 @@
  */
 package View;
 
+import java.util.ResourceBundle;
+import javax.annotation.Resource;
+
 /**
  *
  * @author somor
  */
 public class ViewFactory {
+    
+     private ResourceBundle config ;
+     
+    public void getView(){
+        
+      config = ResourceBundle.getBundle("Application.Config");
+        switch(config.getString("view_style")){
+            
+            case "text":
+                
+                break;
+        }
+        
+        
+        
+    }
+    
+    
     
 }
