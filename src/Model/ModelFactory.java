@@ -5,10 +5,23 @@
  */
 package Model;
 
+import java.util.ResourceBundle;
+
 /**
  *
  * @author somor
  */
 public class ModelFactory {
     
+    private ResourceBundle config ;
+    
+    public ModelInterface getModel() {
+        ModelInterface model = null;
+       String Dato = ResourceBundle.getBundle("Application.Config").getString("view_style");
+       if (Dato.equalsIgnoreCase("file")){
+           model = new FileModelImplementation();
+       }
+            return model;
+    }
 }
+

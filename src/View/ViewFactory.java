@@ -16,20 +16,19 @@ public class ViewFactory {
     
      private ResourceBundle config ;
      
-    public void getView(){
-        
-      config = ResourceBundle.getBundle("Application.Config");
-        switch(config.getString("view_style")){
-            
-            case "text":
-                
-                break;
-        }
-        
-        
+    public ViewInterface getView(){
+      ViewInterface view = null;
+      String Dato = ResourceBundle.getBundle("Application.Config").getString("view_style");
+      if(Dato.equalsIgnoreCase("text")){
+          view =  new TextViewImplementation();
+      }  
+        return view;
         
     }
     
     
     
 }
+    
+    
+

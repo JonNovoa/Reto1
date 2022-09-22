@@ -5,16 +5,10 @@
  */
 package Model;
 
-import java.io.File;
-
 /**
  *
  * @author somor
  */
-public class TextViewImplementation {
-    
-     
-
-    
+public class BdModelImplementation {
     
 }
