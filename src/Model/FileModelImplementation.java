@@ -6,11 +6,24 @@
 package Model;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ResourceBundle;
+import java.util.Scanner;
 
 /**
  *
  * @author somor
  */
-public class FileModelImplementation {
+public class FileModelImplementation implements ModelInterface {
     File fich = new File("C:/saludo.txt");
+    
+    public String getGreeting() throws FileNotFoundException{
+        String text = "";
+        Scanner obj = new Scanner(fich);
+        while (obj.hasNextLine()){
+            text = obj.nextLine();
+        }
+        return text;
+       
+    }
 }

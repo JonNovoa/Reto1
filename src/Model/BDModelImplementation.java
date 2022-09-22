@@ -11,7 +11,7 @@ import java.io.File;
  *
  * @author somor
  */
-public class TextViewImplementation {
+public class BDModelImplementation implements ModelInterface {
     
      
 

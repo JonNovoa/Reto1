@@ -9,6 +9,7 @@ package View;
  *
  * @author somor
  */
-public class TextViewImplementation {
-    
+public class TextViewImplementation implements ViewInterface{
+
+
 }
