@@ -5,16 +5,10 @@
  */
 package Model;
 
-import java.io.File;
-
 /**
  *
- * @author somor
+ * @author INFORMATICA
  */
-public class BDModelImplementation implements ModelInterface {
-    
-     
-
-    
+public class BDModelImplementation {
     
 }
