@@ -11,4 +11,7 @@ package Model;
  */
 public interface ModelInterface {
     
+    
+    public String getGreeting();
+    
 }

@@ -14,11 +14,13 @@ import javax.annotation.Resource;
  */
 public class ViewFactory {
     
-     private ResourceBundle config ;
+    
      
     public ViewInterface getView(){
       ViewInterface view = null;
       String Dato = ResourceBundle.getBundle("Application.Config").getString("view_style");
+      
+  
       if(Dato.equalsIgnoreCase("text")){
           view =  new TextViewImplementation();
       }  

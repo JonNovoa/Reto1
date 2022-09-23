@@ -13,13 +13,17 @@ import java.util.ResourceBundle;
  */
 public class ModelFactory {
     
-    private ResourceBundle config ;
+  //  private ResourceBundle config ;
     
     public ModelInterface getModel() {
         ModelInterface model = null;
-       String Dato = ResourceBundle.getBundle("Application.Config").getString("view_style");
+       String Dato = ResourceBundle.getBundle("Application.Config").getString("model_style");
        if (Dato.equalsIgnoreCase("file")){
            model = new FileModelImplementation();
+       }
+       
+       if(model==null){
+           System.out.println("hola");
        }
             return model;
     }

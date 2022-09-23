@@ -5,10 +5,19 @@
  */
 package View;
 
+
 /**
  *
  * @author somor
  */
 public class TextViewImplementation implements ViewInterface{
+    
+  
+    public void showGreeting(String meesage){
+        System.out.println(meesage);
+    }
+
+    
+   
     
 }

@@ -5,12 +5,20 @@
  */
 package Controller;
 
+import Model.ModelInterface;
+import View.ViewInterface;
+
 /**
  *
  * @author somor
  */
 public class Controller {
     
-   // public void run ()
+    public void run (ViewInterface view,ModelInterface model){
+        String dato="";
+        
+        dato = model.getGreeting();    
+        view.showGreeting(dato);
+    }
     
 }

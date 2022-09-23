@@ -11,4 +11,5 @@ package View;
  */
 public interface ViewInterface {
     
+    public void showGreeting(String message);
 }

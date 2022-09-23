@@ -15,15 +15,13 @@ import java.util.Scanner;
  * @author somor
  */
 public class FileModelImplementation implements ModelInterface {
-    File fich = new File("C:/saludo.txt");
+   
     
-    public String getGreeting() throws FileNotFoundException{
-        String text = "";
-        Scanner obj = new Scanner(fich);
-        while (obj.hasNextLine()){
-            text = obj.nextLine();
-        }
-        return text;
-       
+    @Override
+    public String getGreeting(){ 
+        
+        String greeting = ResourceBundle.getBundle("Model.greet").getString("message");
+        System.out.println();
+       return greeting;
     }
 }

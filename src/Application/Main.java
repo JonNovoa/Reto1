@@ -9,6 +9,7 @@ import Controller.Controller;
 import Model.ModelFactory;
 import View.ViewFactory;
 import java.io.File;
+import java.util.ResourceBundle;
 
 
 
@@ -26,13 +27,20 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         
+         String Dato = ResourceBundle.getBundle("Application.Config").getString("view_style");
+         
+         
+        
         ViewFactory view = new ViewFactory();
         ModelFactory model = new ModelFactory();
         Controller controller = new Controller();
         
-       // model.run(getView,getModel);
         
-       
+        
+        
+        
+       controller.run(view.getView(), model.getModel());
+        
     }
     
 }
