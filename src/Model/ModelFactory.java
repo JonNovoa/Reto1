@@ -21,10 +21,6 @@ public class ModelFactory {
        if (Dato.equalsIgnoreCase("file")){
            model = new FileModelImplementation();
        }
-       
-       if(model==null){
-           System.out.println("hola");
-       }
             return model;
     }
 }
