@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Exceptions.BDException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -40,27 +41,33 @@ public class BdModelImplementation implements ModelInterface {
         this.driver = archivoConfig.getString("Driver");
     }
 
-    public void openConnection() throws ClassNotFoundException{
+    public void openConnection() throws ClassNotFoundException,BDException{
         try{
             Class.forName(driver);
             conex = DriverManager.getConnection(url,usuario,contraseña);
         }catch(SQLException e){
-            e.printStackTrace();
+            //e.printStackTrace();
+            throw new BDException("ERROR");
         }
     }
     
-    public void closeConnection() throws SQLException{
+    public void closeConnection() throws SQLException,BDException{
         if(conex != null){
             conex.close();
         }
         if(stmt !=null){
             conex.close();
         }
+        throw new BDException("error");
     }
     
-    
-    
-    public String getGreeting() {
+    /**
+     *
+     * @return
+     * @throws BDException
+     */
+    @Override
+    public String getGreeting() throws BDException{
         
         ResultSet rs = null;
         String saludo = "";
@@ -70,7 +77,8 @@ public class BdModelImplementation implements ModelInterface {
             this.openConnection();
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(BdModelImplementation.class.getName()).log(Level.SEVERE, null, ex);
+           // Logger.getLogger(BdModelImplementation.class.getName()).log(Level.SEVERE, null, ex);
+           throw new BDException("ERROR SQL");
         }
         
         try {
@@ -83,13 +91,15 @@ public class BdModelImplementation implements ModelInterface {
                 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(BdModelImplementation.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(BdModelImplementation.class.getName()).log(Level.SEVERE, null, ex);
+        throw new BDException("ERROR SQL");
         }
         
         try {
             this.closeConnection();
         } catch (SQLException ex) {
-            Logger.getLogger(BdModelImplementation.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(BdModelImplementation.class.getName()).log(Level.SEVERE, null, ex);
+            throw  new BDException("ERROR SQL");
         }
         
         return saludo;

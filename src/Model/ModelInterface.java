@@ -5,6 +5,8 @@
  */
 package Model;
 
+import Exceptions.BDException;
+
 /**
  *
  * @author somor
@@ -12,6 +14,6 @@ package Model;
 public interface ModelInterface {
     
     
-    public String getGreeting();
+    public String getGreeting() throws BDException;
     
 }

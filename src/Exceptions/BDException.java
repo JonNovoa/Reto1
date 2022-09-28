@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
-
-import Exceptions.BDException;
+package Exceptions;
 
 /**
  *
  * @author somor
  */
-public interface ViewInterface {
-    
-    public void showGreeting(String message) throws BDException;
+public class BDException extends Exception{
+     
+    public BDException(String message){
+        super(message);
+    }
 }
