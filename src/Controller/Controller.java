@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Exceptions.BDException;
 import Model.ModelInterface;
 import View.ViewInterface;
 
@@ -14,7 +15,7 @@ import View.ViewInterface;
  */
 public class Controller {
     
-    public void run (ViewInterface view,ModelInterface model){
+    public void run (ViewInterface view,ModelInterface model) throws BDException{
         String dato="";
         
         dato = model.getGreeting();    
