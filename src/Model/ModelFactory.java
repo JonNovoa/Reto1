@@ -21,6 +21,9 @@ public class ModelFactory {
        if (Dato.equalsIgnoreCase("file")){
            model = new FileModelImplementation();
        }
+       if(Dato.equalsIgnoreCase("bd")){
+           model = new BdModelImplementation();
+       }
             return model;
     }
 }

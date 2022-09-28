@@ -23,7 +23,10 @@ public class ViewFactory {
   
       if(Dato.equalsIgnoreCase("text")){
           view =  new TextViewImplementation();
-      }  
+      }
+      if(Dato.equalsIgnoreCase("swing")){
+          view = (ViewInterface) new SwingViewImplementation();
+      }
         return view;
         
     }

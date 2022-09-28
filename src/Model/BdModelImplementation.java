@@ -20,67 +20,80 @@ import java.util.logging.Logger;
  * @author somor
  */
 public class BdModelImplementation implements ModelInterface {
-    private Connection con = null;
-    private Properties prope;
-    private PreparedStatement stmnt = null;
+ 
     
-    private  String url;
-    private String user;
-    private String passwd;
-    private ResourceBundle connectFile;
+    private Connection conex;
+    private PreparedStatement stmt;
+    private ResourceBundle archivoConfig;
+    private String url;
+    private String usuario;
+    private String contraseña;
+    private String driver;
     
     private final String getGreeting = "SELECT message from greet";
     
     public BdModelImplementation(){
-        this.connectFile = ResourceBundle.getBundle("Model.BDconnect");
-        this.url = connectFile.getString("Url");
-        this.user = connectFile.getString("User");
-        this.passwd = connectFile.getString("Passwd");
+        this.archivoConfig = ResourceBundle.getBundle("Model.BDconnect");
+        this.url = archivoConfig.getString("Conn");
+        this.usuario = archivoConfig.getString("BDuser");
+        this.contraseña = archivoConfig.getString("BDPass");
+        this.driver = archivoConfig.getString("Driver");
     }
-    
-    public void openConnection(){
-        try {
-            con = DriverManager.getConnection(url,user,passwd);
-        } catch (SQLException ex) {
-            Logger.getLogger(BdModelImplementation.class.getName()).log(Level.SEVERE, null, ex);
+
+    public void openConnection() throws ClassNotFoundException{
+        try{
+            Class.forName(driver);
+            conex = DriverManager.getConnection(url,usuario,contraseña);
+        }catch(SQLException e){
+            e.printStackTrace();
         }
     }
     
     public void closeConnection() throws SQLException{
-        if(con != null){
-            con.close();
+        if(conex != null){
+            conex.close();
         }
-        if(stmnt != null){
-            con.close();
+        if(stmt !=null){
+            conex.close();
         }
     }
     
     
     
     public String getGreeting() {
-        String text = "No entra";
+        
         ResultSet rs = null;
-        this.openConnection();
+        String saludo = "";
+       
         
         try {
-            stmnt = con.prepareStatement(getGreeting);
-            System.out.println(stmnt);
-            rs = stmnt.executeQuery();
+            this.openConnection();
             
-            text=rs.getString("message");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(BdModelImplementation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            stmt = conex.prepareStatement(getGreeting);
+             
+            rs = stmt.executeQuery();
+            
+            if(rs.next()){
+                saludo = rs.getString(1);
+                
+            }
         } catch (SQLException ex) {
             Logger.getLogger(BdModelImplementation.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
-            try {
-                this.closeConnection();
-                if(rs!=null){
-                    rs.close();
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(BdModelImplementation.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
-       return text;
+        
+        try {
+            this.closeConnection();
+        } catch (SQLException ex) {
+            Logger.getLogger(BdModelImplementation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return saludo;
+      
         
     }
     

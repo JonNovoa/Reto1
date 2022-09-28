@@ -33,11 +33,7 @@ public class Main {
         
         ViewFactory view = new ViewFactory();
         ModelFactory model = new ModelFactory();
-        Controller controller = new Controller();
-        
-        
-        
-        
+        Controller controller = new Controller();   
         
        controller.run(view.getView(), model.getModel());
         
