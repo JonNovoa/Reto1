@@ -5,9 +5,12 @@
  */
 package Test;
 
+import Exceptions.BDException;
 import Model.BdModelImplementation;
 import Model.FileModelImplementation;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +23,7 @@ import static org.junit.Assert.*;
 public class ModelTest {
     private BdModelImplementation bdi;
     private FileModelImplementation fmi;
-    private Model.ModelFactory mf;
+    
     public ModelTest() {
     }
     
@@ -28,19 +31,33 @@ public class ModelTest {
     public void setUp() throws ClassNotFoundException {
         bdi = new BdModelImplementation();
         fmi = new FileModelImplementation();
-        bdi.openConnection();
+        try {
+            bdi.openConnection();
+        } catch (BDException ex) {
+            Logger.getLogger(ModelTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @After
     public void tearDown() throws SQLException {
-        bdi.closeConnection();
+        try {
+            bdi.closeConnection();
+        } catch (BDException ex) {
+            Logger.getLogger(ModelTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @Test
     public void testGetGreetingBD(){
-        String message = bdi.getGreeting();
-        String expc = "Hola, buenas tardes";
+        String message;
+        try {
+            message = bdi.getGreeting();
+            String expc = "Hola, buenas tardes";
         assertEquals(message, expc);
+        } catch (BDException ex) {
+            Logger.getLogger(ModelTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
     }
     

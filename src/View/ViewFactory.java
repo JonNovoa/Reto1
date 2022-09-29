@@ -9,13 +9,15 @@ import java.util.ResourceBundle;
 import javax.annotation.Resource;
 
 /**
- *
+ * Factoria de vista
  * @author somor
  */
 public class ViewFactory {
     
-    
-     
+    /**
+     * Elije del properties de configuracion el modo de salida del mensaje
+     * @return 
+     */    
     public ViewInterface getView(){
       ViewInterface view = null;
       String Dato = ResourceBundle.getBundle("Application.Config").getString("view_style");

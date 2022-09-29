@@ -6,8 +6,8 @@
 package View;
 
 /**
- *
- * @author somor
+ * Implementacion del Swing en la vista
+ * @author grupoJG
  */
 public class SwingViewImplementation extends javax.swing.JFrame implements ViewInterface{
 

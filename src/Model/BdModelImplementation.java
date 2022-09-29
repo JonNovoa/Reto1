@@ -58,7 +58,7 @@ public class BdModelImplementation implements ModelInterface {
         if(stmt !=null){
             conex.close();
         }
-        throw new BDException("error");
+        
     }
     
     /**

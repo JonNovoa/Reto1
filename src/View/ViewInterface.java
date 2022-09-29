@@ -8,10 +8,15 @@ package View;
 import Exceptions.BDException;
 
 /**
- *
+ * Interfaz de vistas
  * @author somor
  */
 public interface ViewInterface {
     
+    /**
+     * Metodo de la vista
+     * @param message
+     * @throws BDException 
+     */
     public void showGreeting(String message) throws BDException;
 }
