@@ -6,6 +6,7 @@
 package Application;
 
 import Controller.Controller;
+import Exceptions.BDException;
 import Model.ModelFactory;
 import View.ViewFactory;
 import java.io.File;
@@ -15,7 +16,7 @@ import java.util.ResourceBundle;
 
 /**
  *
- * @author somor
+ * @author GRUPO JG
  */
 public class Main {
     
@@ -24,16 +25,20 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BDException {
         // TODO code application logic here
         
-         String Dato = ResourceBundle.getBundle("Application.Config").getString("view_style");
+        // String Dato = ResourceBundle.getBundle("Application.Config").getString("view_style");
          
          
         
         ViewFactory view = new ViewFactory();
         ModelFactory model = new ModelFactory();
         Controller controller = new Controller();   
+        
+        /**
+         * 
+         */
         
        controller.run(view.getView(), model.getModel());
         

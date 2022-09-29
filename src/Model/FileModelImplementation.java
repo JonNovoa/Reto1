@@ -12,11 +12,14 @@ import java.util.Scanner;
 
 /**
  *
- * @author somor
+ * @author GRUPO JG
  */
 public class FileModelImplementation implements ModelInterface {
    
-    
+    /**
+     * metodo para leer del fichero y devolver el saludo
+     * @return saludo
+     */
     @Override
     public String getGreeting(){ 
         
