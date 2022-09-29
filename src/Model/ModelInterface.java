@@ -5,13 +5,19 @@
  */
 package Model;
 
+import Exceptions.BDException;
+
 /**
- *
- * @author somor
+ * Interface del modelo
+ * @author grupoJG
  */
 public interface ModelInterface {
     
-    
-    public String getGreeting();
+    /**
+     * Metodo de la implementacion
+     * @return
+     * @throws BDException 
+     */
+    public String getGreeting() throws BDException;
     
 }

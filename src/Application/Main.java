@@ -6,10 +6,13 @@
 package Application;
 
 import Controller.Controller;
+import Exceptions.BDException;
 import Model.ModelFactory;
 import View.ViewFactory;
 import java.io.File;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -33,13 +36,13 @@ public class Main {
         
         ViewFactory view = new ViewFactory();
         ModelFactory model = new ModelFactory();
-        Controller controller = new Controller();
+        Controller controller = new Controller();   
         
-        
-        
-        
-        
-       controller.run(view.getView(), model.getModel());
+        try {
+            controller.run(view.getView(), model.getModel());
+        } catch (BDException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     

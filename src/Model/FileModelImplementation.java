@@ -21,7 +21,7 @@ public class FileModelImplementation implements ModelInterface {
     public String getGreeting(){ 
         
         String greeting = ResourceBundle.getBundle("Model.greet").getString("message");
-        System.out.println();
+        
        return greeting;
     }
 }

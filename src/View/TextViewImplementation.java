@@ -7,12 +7,15 @@ package View;
 
 
 /**
- *
- * @author somor
+ * Implementacion de la vista
+ * @author grupoJG
  */
 public class TextViewImplementation implements ViewInterface{
     
-  
+  /**
+   * Muestra el mensaje
+   * @param meesage 
+   */
     public void showGreeting(String meesage){
         System.out.println(meesage);
     }

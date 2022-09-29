@@ -5,11 +5,18 @@
  */
 package View;
 
+import Exceptions.BDException;
+
 /**
- *
- * @author somor
+ * Interfaz de vistas
+ * @author grupoJG
  */
 public interface ViewInterface {
     
-    public void showGreeting(String message);
+    /**
+     * Metodo de la vista
+     * @param message
+     * @throws BDException 
+     */
+    public void showGreeting(String message) throws BDException;
 }

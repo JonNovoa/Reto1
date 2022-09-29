@@ -8,18 +8,24 @@ package Model;
 import java.util.ResourceBundle;
 
 /**
- *
- * @author somor
+ * Factoria del Modelo
+ * @author grupoJG
  */
 public class ModelFactory {
     
   //  private ResourceBundle config ;
-    
+    /**
+     * Elije del properties de configuracion de donde va a coger los datos a mostrar
+     * @return 
+     */
     public ModelInterface getModel() {
         ModelInterface model = null;
        String Dato = ResourceBundle.getBundle("Application.Config").getString("model_style");
        if (Dato.equalsIgnoreCase("file")){
            model = new FileModelImplementation();
+       }
+       if(Dato.equalsIgnoreCase("bd")){
+           model = new BdModelImplementation();
        }
             return model;
     }
