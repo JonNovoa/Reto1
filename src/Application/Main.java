@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author somor
+ * @author GRUPO JG
  */
 public class Main {
     
@@ -27,10 +27,10 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BDException {
         // TODO code application logic here
         
-         String Dato = ResourceBundle.getBundle("Application.Config").getString("view_style");
+        // String Dato = ResourceBundle.getBundle("Application.Config").getString("view_style");
          
          
         
@@ -38,11 +38,15 @@ public class Main {
         ModelFactory model = new ModelFactory();
         Controller controller = new Controller();   
         
+
         try {
             controller.run(view.getView(), model.getModel());
         } catch (BDException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+       controller.run(view.getView(), model.getModel());
+
         
     }
     

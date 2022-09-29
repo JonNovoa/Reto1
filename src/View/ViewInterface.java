@@ -18,5 +18,6 @@ public interface ViewInterface {
      * @param message
      * @throws BDException 
      */
+
     public void showGreeting(String message) throws BDException;
 }

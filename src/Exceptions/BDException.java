@@ -7,7 +7,9 @@ package Exceptions;
 
 /**
  *
- * @author somor
+ * @author GRUPO JG
+ * Excepcion para cuanto intentas conectar con la BD
+
  */
 public class BDException extends Exception{
      

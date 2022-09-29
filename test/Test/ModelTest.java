@@ -18,20 +18,20 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author grupoJG
+ * @author INFORMATICA
  */
 public class ModelTest {
     private BdModelImplementation bdi;
     private FileModelImplementation fmi;
-    
+    private Model.ModelFactory mf;
     public ModelTest() {
     }
     
     @Before
     public void setUp() throws ClassNotFoundException {
-        bdi = new BdModelImplementation();
-        fmi = new FileModelImplementation();
         try {
+            bdi = new BdModelImplementation();
+            fmi = new FileModelImplementation();
             bdi.openConnection();
         } catch (BDException ex) {
             Logger.getLogger(ModelTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -48,16 +48,14 @@ public class ModelTest {
     }
     
     @Test
-    public void testGetGreetingBD(){
-        String message;
+    public void testGetGreetingBD() {
         try {
-            message = bdi.getGreeting();
+            String message = bdi.getGreeting();
             String expc = "Hola, buenas tardes";
-        assertEquals(message, expc);
+            assertEquals(message, expc);
         } catch (BDException ex) {
             Logger.getLogger(ModelTest.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         
     }
     

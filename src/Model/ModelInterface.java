@@ -12,12 +12,13 @@ import Exceptions.BDException;
  * @author grupoJG
  */
 public interface ModelInterface {
-    
+ 
     /**
      * Metodo de la implementacion
      * @return
      * @throws BDException 
      */
+
     public String getGreeting() throws BDException;
     
 }
