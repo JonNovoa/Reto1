@@ -9,7 +9,7 @@ import Exceptions.BDException;
 
 /**
  * Interfaz de vistas
- * @author somor
+ * @author grupoJG
  */
 public interface ViewInterface {
     

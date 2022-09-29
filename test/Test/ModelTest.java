@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author INFORMATICA
+ * @author grupoJG
  */
 public class ModelTest {
     private BdModelImplementation bdi;
